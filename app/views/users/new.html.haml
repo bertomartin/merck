@@ -8,6 +8,9 @@
         - for message in @user.errors.full_messages
           %li= message
   .field
+    =f.label :name
+    =f.text_field :name
+  .field
     =f.label :email
     =f.text_field :email
   .field

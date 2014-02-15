@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215211256) do
+ActiveRecord::Schema.define(version: 20140215232303) do
 
   create_table "conditions", force: true do |t|
     t.string "name"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 20140215211256) do
   create_table "drugs", force: true do |t|
     t.string  "name"
     t.integer "condition_id"
+  end
+
+  create_table "mesages", force: true do |t|
+    t.text    "message"
+    t.integer "send_type"
+    t.integer "user_id"
+    t.integer "patient_id"
+  end
+
+  create_table "patient_conditions", force: true do |t|
+    t.integer "patient_id"
+    t.integer "condition_id"
+  end
+
+  add_index "patient_conditions", ["condition_id"], name: "index_patient_conditions_on_condition_id"
+  add_index "patient_conditions", ["patient_id"], name: "index_patient_conditions_on_patient_id"
+
+  create_table "patients", force: true do |t|
+    t.string "name"
+    t.string "phone"
   end
 
   create_table "schedules", force: true do |t|
