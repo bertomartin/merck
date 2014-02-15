@@ -1,0 +1,11 @@
+.jumbotron
+  %h1 Welcome to health text
+  %p.lead
+    Introduction to what we do
+  - if current_user
+    %a{:href => "#"}
+
+  - else
+    %p
+      %a.btn.btn-lg.btn-success{:href => new_user_path}
+        Sign up today
