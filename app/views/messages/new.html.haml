@@ -6,6 +6,7 @@
   %strong
 
 =form_for [@user, @patient, @message], :url => user_patient_messages_path(params[:user_id], params[:patient_id]) do |f|
+  = hidden_field_tag :phone, :value => "+13472793255"
   .field
     =f.label :message
     %br
@@ -16,10 +17,6 @@
     %br
     =f.select :send_type, options_for_select(%w[SMS Voice Email])
     %br
-
-  = fields_for(@condition) do |c|
-    .field
-      =c.text_field :name
 
 
 

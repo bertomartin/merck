@@ -8,7 +8,11 @@ Merck::Application.routes.draw do
 
   resources :users do
     resources :patients do
-      resources :messages
+      resources :messages do
+        member do
+          get '/reminder' => "messages#reminder"
+        end
+      end
     end
   end
   resources :sessions

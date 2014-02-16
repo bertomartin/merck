@@ -1,5 +1,6 @@
 class PatientCondition < ActiveRecord::Base
   attr_accessible :patient_id, :condition_id
+  validates_presence_of :patient_id, :condition_id
 
   belongs_to :patient
   belongs_to :condition

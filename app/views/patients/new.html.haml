@@ -22,10 +22,18 @@
   = f.fields_for :patient_conditions do |pc|
     = pc.fields_for :conditions do |c|
       =c.label "Select Condition"
-      =c.collection_select(:collection_id, Condition.all, :id, :name)
-
+      =c.collection_select(:condition_id, Condition.all, :id, :name)
+      %br
+      = c.fields_for :drugs do |d|
+        =d.label "Select a Drug"
+        =d.collection_select(:drug_id, Drug.all, :id, :name)
+        %br
+        = d.fields_for :schedules do |s|
+          =s.label "Drug Schedules"
+          =s.collection_select(:schedule_id, Schedule.all, :id, :time_to_send)
 
   .field
     %br
     =f.submit "Create Patient"
 
+=link_to "Back to patients", user_path(@user.id)

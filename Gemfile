@@ -34,6 +34,8 @@ end
 
 # gem 'haml'
 gem 'haml-rails'
+gem 'debugger'
+gem 'twilio-ruby'
 
 
 
