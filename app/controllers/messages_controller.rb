@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   BASE_URL = "http://localhost:3000"
 
 # Outgoing Caller ID you have previously validated with Twilio
-  CALLER_ID = '+6465911479'
+  CALLER_ID = '6465911479'
 
   def new
     @user = User.new

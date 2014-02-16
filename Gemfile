@@ -37,6 +37,8 @@ gem 'haml-rails'
 gem 'debugger'
 gem 'twilio-ruby'
 gem 'mp3_player'
+gem 'rails_12factor', group: :production
+ruby "2.0.0p247"
 
 
 
