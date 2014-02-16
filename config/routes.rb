@@ -9,14 +9,21 @@ Merck::Application.routes.draw do
   get "rails/patients"
   get "rails/new"
   get "rails/create"
-  get "messages/new"
-  get "messages/create"
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  resources :users
+  resources :users do
+    resources :patients do
+      resources :messages
+    end
+  end
   resources :sessions
+
+  # resources :messages
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,2 +1,5 @@
-%h1 Messages#new
-%p Find me in app/views/messages/new.html.haml
+
+=form_for @message do |f|
+  =f.text_area :message
+  =f.select :send_type, options_for_select(%w[SMS Voice Email])
+  =f.submit "Create Message"
