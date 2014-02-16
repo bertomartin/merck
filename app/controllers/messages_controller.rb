@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   BASE_URL = "http://localhost:3000"
 
 # Outgoing Caller ID you have previously validated with Twilio
-  CALLER_ID = '16465911479'
+  CALLER_ID = '+6465911479'
 
   def new
     @user = User.new
@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
         # client.account.messages.sendMessage data
         # client.account.calls.create data
         client.account.sms.messages.create(
-          from: CALLER_ID,
+          from: '6465911479',
           to: '+9175175848',
           body: "It is Roberto."
         )

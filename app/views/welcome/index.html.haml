@@ -1,9 +1,10 @@
 .jumbotron
-  %h1 Welcome to health text
+  %h2 Welcome to Forget-Me(d)-Not
   %p.lead
-    Introduction to what we do
+    We help you manage your family's meds.
   - if current_user
-    %a{:href => "#"}
+    %h3
+      =link_to "view or create patients", user_path(current_user)
 
   - else
     %p

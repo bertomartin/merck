@@ -36,6 +36,7 @@ end
 gem 'haml-rails'
 gem 'debugger'
 gem 'twilio-ruby'
+gem 'mp3_player'
 
 
 

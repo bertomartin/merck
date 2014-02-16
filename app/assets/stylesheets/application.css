@@ -24,8 +24,10 @@
 
 body{
   padding-top: 70px;
+  xbackground-color: #269;
+  xcolor: #fff;
 }
 .container{
-  width: 750px;
+  xwidth: 750px;
 }
 

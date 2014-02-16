@@ -9,6 +9,9 @@
   =link_to "Create Patient", new_user_patient_path(@user)
 
 %h3 Your Patients
+- unless @user_patients.present?
+  %h4
+    You have no patients yet, your patients will be listed here.
 %ol
   - @user_patients.each do |patient|
     %li=link_to patient.name, user_patient_path(@user, patient)

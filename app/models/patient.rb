@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  attr_accessible :phone, :name, :your_relationship
+  attr_accessible :phone, :name, :your_relationship, :age, :gender, :zip_code
   validates_presence_of :name, :phone
   belongs_to :user
 

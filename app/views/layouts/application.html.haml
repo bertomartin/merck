@@ -4,6 +4,9 @@
     %title Shareup
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+
+    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js'
+    = mp3_player_headers without_swfobject: true
     = csrf_meta_tags
   %body
     =render :partial => "shared/header"

@@ -1,39 +1,47 @@
 
-%h1 Add a new patient
+.row
+  .col-md-5
+    %h1 Add a new patient
 
-=form_for [@user, @patient], :url => user_patients_path do |f|
-  .field
-    =f.label :name
-    %br
-    =f.text_field :name
+    =form_for [@user, @patient], :url => user_patients_path do |f|
+      .form-group
+        =f.label :name
+        =f.text_field :name, :class => "form-control"
 
-  .field
-    =f.label :your_relationship
-    %br
-    =f.text_field :your_relationship
+      .form-group
+        =f.label :your_relationship
+        =f.text_field :your_relationship, :class => "form-control"
+      .form-group
+        =f.label :age
+        =f.text_field :age, :class => "form-control"
+      .form-group
+        =f.label :gender
+        =f.text_field :gender, :class => "form-control"
+      .form-group
+        =f.label :zip_code
+        =f.text_field :zip_code, :class => "form-control"
 
 
-  .field
-    =f.label :phone
-    %br
-    =f.text_field :phone
-    %br
-
-  = f.fields_for :patient_conditions do |pc|
-    = pc.fields_for :conditions do |c|
-      =c.label "Select Condition"
-      =c.collection_select(:condition_id, Condition.all, :id, :name)
-      %br
-      = c.fields_for :drugs do |d|
-        =d.label "Select a Drug"
-        =d.collection_select(:drug_id, Drug.all, :id, :name)
+      .form-group
+        =f.label :phone
+        =f.text_field :phone, :class => "form-control"
         %br
-        = d.fields_for :schedules do |s|
-          =s.label "Drug Schedules"
-          =s.collection_select(:schedule_id, Schedule.all, :id, :time_to_send)
 
-  .field
-    %br
-    =f.submit "Create Patient"
+      = f.fields_for :patient_conditions do |pc|
+        = pc.fields_for :conditions do |c|
+          =c.label "Select Condition"
+          =c.collection_select(:condition_id, Condition.all, :id, :name)
+          %br
+          = c.fields_for :drugs do |d|
+            =d.label "Select a Drug"
+            =d.collection_select(:drug_id, Drug.all, :id, :name)
+            %br
+            = d.fields_for :schedules do |s|
+              =s.label "Drug Schedules"
+              =s.collection_select(:schedule_id, Schedule.all, :id, :time_to_send)
 
-=link_to "Back to patients", user_path(@user.id)
+      .field
+        %br
+        =f.submit "Create Patient", :class => "btn btn-primary"
+
+    =link_to "Back to patients", user_path(@user.id)

@@ -1,24 +1,25 @@
-%p
-  =link_to "Back to all patients", user_path(current_user)
-%p
-  Create a Schedule for
-  %br
-  %strong
+.row
+  .col-md-5
+    %p
+      =link_to "Back to all patients", user_path(current_user)
+    %p
+      Create a Schedule for
+      %br
+      %strong
 
-=form_for [@user, @patient, @message], :url => user_patient_messages_path(params[:user_id], params[:patient_id]) do |f|
-  = hidden_field_tag :phone, :value => "+13472793255"
-  .field
-    =f.label :message
-    %br
-    =f.text_area :message
-    %br
-  .field
-    =f.label :send_type
-    %br
-    =f.select :send_type, options_for_select(%w[SMS Voice Email])
-    %br
+    =form_for [@user, @patient, @message], :url => user_patient_messages_path(params[:user_id], params[:patient_id]) do |f|
+      = hidden_field_tag :phone, :value => "+13472793255"
+      .form-group
+        =f.label :message
+        =f.text_area :message, :class => "form-control"
 
+      .form-group
+        =f.label :send_type
+        =f.select :send_type, options_for_select(%w[SMS Voice Email]), :class => "form-control"
 
 
-  .field
-    =f.submit "Create Schedule"
+
+      .form-group
+        =f.submit "Create Schedule", :class => "btn btn-primary"
+
+      = mp3_player("http://localhost:3000/hellomom.mp3")
