@@ -1,5 +1,14 @@
+%h3
+  Your Patient
 %p
-  %h2 name
+  %strong name
   = @patient.name
-  %h2 phone
+  %br
+  %strong Relationship
+  = @patient.your_relationship
+  %br
+  %strong phone
   = @patient.phone
+
+  %h3 Set up Schedule
+  =link_to "Add Schedule", new_user_patient_message_path(params[:user_id], params[:id])

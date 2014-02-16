@@ -1,1 +1,24 @@
-%h1 new patient
+
+%h1 Add a new patient
+
+=form_for [@user, @patient], :url => user_patients_path do |f|
+  .field
+    =f.label :name
+    %br
+    =f.text_field :name
+
+  .field
+    =f.label :your_relationship
+    %br
+    =f.text_field :your_relationship
+
+
+  .field
+    =f.label :phone
+    %br
+    =f.text_field :phone
+
+  .field
+    %br
+    =f.submit "Create Patient"
+

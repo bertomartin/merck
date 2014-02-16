@@ -1,14 +1,6 @@
 Merck::Application.routes.draw do
 
-  get "schedules/new"
-  get "schedules/create"
-  get "drugs/new"
-  get "drugs/create"
-  get "rails/g"
-  get "rails/controller"
-  get "rails/patients"
-  get "rails/new"
-  get "rails/create"
+
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
@@ -21,7 +13,6 @@ Merck::Application.routes.draw do
   end
   resources :sessions
 
-  # resources :messages
 
 
   # The priority is based upon order of creation: first created -> highest priority.

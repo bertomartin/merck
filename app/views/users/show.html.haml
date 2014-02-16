@@ -1,2 +1,14 @@
-%h1
-  =#{@user.name}
+%h5
+  Welcome back,
+  = current_user.name
+%p
+  Create a new patient below, or set up a schedule for one of your patients
+
+
+%p
+  =link_to "Create Patient", new_user_patient_path(@user)
+
+%h3 Your Patients
+%ol
+  - @user_patients.each do |patient|
+    %li=link_to patient.name, user_patient_path(@user, patient)
