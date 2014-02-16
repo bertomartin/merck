@@ -4,4 +4,6 @@ class Patient < ActiveRecord::Base
 
   has_many :patient_conditions
   has_many :conditions, :through => :patient_conditions
+  accepts_nested_attributes_for :patient_conditions
+
 end

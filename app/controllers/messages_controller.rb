@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def new
-    @user = params[:user_id]
-    @patient = params[:patient_id]
+    @user = User.new
+    @patient = Patient.new
+    @condition = @patient.conditions.build
     @message = Message.new
   end
 

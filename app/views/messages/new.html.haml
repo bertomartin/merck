@@ -1,12 +1,11 @@
 %p
-  =link_to "Back to all patients", user_path(@user)
+  =link_to "Back to all patients", user_path(current_user)
 %p
   Create a Schedule for
   %br
   %strong
-    =Patient.find_by_id(@patient).name
 
-=form_for [@user, @patient, @message], :url => user_patient_messages_path(@user, @patient) do |f|
+=form_for [@user, @patient, @message], :url => user_patient_messages_path(params[:user_id], params[:patient_id]) do |f|
   .field
     =f.label :message
     %br
@@ -17,6 +16,12 @@
     %br
     =f.select :send_type, options_for_select(%w[SMS Voice Email])
     %br
-    %br
+
+  = fields_for(@condition) do |c|
+    .field
+      =c.text_field :name
+
+
+
   .field
     =f.submit "Create Schedule"

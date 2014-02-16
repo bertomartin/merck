@@ -2,6 +2,11 @@ class PatientsController < ApplicationController
   def new
     @user = current_user
     @patient = Patient.new
+    # @condtions = @patient.conditions.build
+
+    @conditions = @patient.patient_conditions.build.build_condition
+    # @patient_conditions = @patient.patient_conditions.build
+    # @conditions = @patient_conditions.build_condition
   end
 
   def index
